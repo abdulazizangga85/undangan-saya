@@ -1,18 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Budi & Ani</title>
-  <style>
-    body { font-family: Arial; text-align: center; padding: 30px; background: #fff8f0; }
-    h1 { color: #a0522d; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan Angga & Vina</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family: 'Poppins', sans-serif; background:#fdf6f0; color:#4a3b2a; text-align:center; overflow-x:hidden}
+  
+  /* HERO */
+  .hero{height:100vh; background:url('foto-cover.jpg') center/cover fixed; display:flex; flex-direction:column; justify-content:center; align-items:center; color:white; position:relative}
+  .hero::after{content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5)}
+  .hero-content{position:relative; z-index:2; animation:fadeIn 2s}
+  .hero h1{font-family:'Great Vibes', cursive; font-size:3.5em; margin:10px 0; text-shadow:2px 2px 8px #000}
+  .btn{padding:14px 32px; background:#a0522d; color:white; border:none; border-radius:30px; font-size:16px; margin-top:20px; cursor:pointer; transition:0.3s}
+  .btn:hover{background:#8b4513; transform:scale(1.05)}
+  
+  /* SECTION UMUM */
+  section{padding:60px 20px; max-width:700px; margin:auto}
+  h2{font-family:'Great Vibes', cursive; font-size:2.5em; color:#a0522d; margin-bottom:20px}
+  
+  /* COUPLE */
+  .couple{display:flex; gap:25px; justify-content:center; flex-wrap:wrap; margin-top:30px}
+  .couple-card{width:45%; background:white; padding:15px; border-radius:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+  .couple-card img{width:100%; border-radius:15px; height:250px; object-fit:cover}
+  
+  /* COUNTDOWN */
+  .countdown{display:flex; justify-content:center; gap:15px; margin:30px 0; flex-wrap:wrap}
+  .box{background:#a0522d; color:white; padding:20px; border-radius:15px; width:90px}
+  .box span{font-size:1.8em; font-weight:600; display:block}
+  
+  /* GALERI */
+  .galeri{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+  .galeri img{width:30%; border-radius:15px; cursor:pointer; transition:0.3s}
+  .galeri img:hover{transform:scale(1.05)}
+  
+  /* AMPL OP */
+  .amplop{background:white; padding:25px; border-radius:20px; margin:15px 0; box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+  
+  /* ANIMASI BUNGA */
+  .bunga{position:fixed; top:-50px; font-size:24px; animation:jatuh linear infinite; z-index:999}
+  @keyframes jatuh{to{transform:translateY(110vh) rotate(360deg)}}
+  @keyframes fadeIn{from{opacity:0} to{opacity:1}}
+</style>
 </head>
 <body>
-  <h1>Undangan Pernikahan</h1>
-  <h2>Budi & Ani</h2>
-  <p>20 Desember 2026</p>
-  <p>Gedung Serbaguna Semarang</p>
+
+<!-- BUNGA JATUH -->
+<script>
+for(let i=0; i<15; i++){ 
+  let bunga = document.createElement('div');
+  bunga.className = 'bunga';
+  bunga.innerHTML = '🌸';
+  bunga.style.left = Math.random()*100 + 'vw';
+  bunga.style.animationDuration = 5 + Math.random()*5 + 's';
+  bunga.style.animationDelay = Math.random()*5 + 's';
+  document.body.appendChild(bunga);
+}
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p>The Wedding Of</p>
+    <h1>Angga & Vina</h1>
+    <p>Sabtu, 17 Oktober 2026</p>
+    <button class="btn" onclick="bukaUndangan()">Buka Undangan</button>
+  </div>
+</section>
+
+<!-- SALAM -->
+<section>
+  <h2>Assalamualaikum Wr. Wb</h2>
+  <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami</p>
+</section>
+
+<!-- MEMPELAI -->
+<section>
+  <h2>Mempelai</h2>
+  <div class="couple">
+    <div class="couple-card">
+      <img src="foto-angga.jpg">
+      <h3>Angga Abdul Aziz</h3>
+      <p>Putra dari Bapak & Ibu ...</p>
+    </div>
+    <div class="couple-card">
+      <img src="foto-vina.jpg">
+      <h3>Vina Mustaghfiroh</h3>
+      <p>Putri dari Bapak & Ibu ...</p>
+    </div>
+  </div>
+</section>
+
+<!-- AKAD & RESEPSI -->
+<section>
+  <h2>Waktu & Tempat</h2>
+  <h3>Sabtu, 17 Oktober 2026</h3>
+  <p>Akad: 08.00 WIB | Resepsi: 11.00 WIB</p>
+  <p>Jl. Kedungsari Kota Semarang</p>
+  
+  <div class="countdown" id="countdown">
+    <div class="box"><span id="hari">0</span>Hari</div>
+    <div class="box"><span id="jam">0</span>Jam</div>
+    <div class="box"><span id="menit">0</span>Menit</div>
+    <div class="box"><span id="detik">0</span>Detik</div>
+  </div>
+  
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0!2d110.0!3d-7.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMCcwMC4wIlMgMTEwwrAwJzAwLjAiRQ!5e0!3m2!1sid!2sid!4v0" width="100%" height="300" style="border-radius:15px; margin-top:20px"></iframe>
+  <a href="https://maps.google.com/?q=Jl.+Kedungsari+Kota+Semarang" target="_blank" class="btn">Buka di Google Maps</a>
+</section>
+
+<!-- GALERI -->
+<section>
+  <h2>Galeri Kami</h2>
+  <div class="galeri">
+    <img src="foto-cover.jpg">
+    <img src="foto-angga.jpg">
+    <img src="foto-vina.jpg">
+  </div>
+</section>
+
+<!-- AMPL OP DIGITAL -->
+<section>
+  <h2>Amplop Digital</h2>
+  <div class="amplop">
+    <p><b>BCA</b></p>
+    <p>1234567890</p>
+    <p>a.n Angga Abdul Aziz</p>
+    <button class="btn" onclick="navigator.clipboard.writeText('1234567890')">Salin No. Rekening</button>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section>
+  <h2>Konfirmasi Kehadiran</h2>
+  <p>Mohon konfirmasi kehadiran melalui link di bawah ini</p>
+  <a href="https://wa.me/62812xxxxxxx?text=Halo%20Angga%20&%20Vina%20Saya%20akan%20hadir" target="_blank" class="btn">Konfirmasi via WhatsApp</a>
+</section>
+
+<!-- FOOTER -->
+<section>
+  <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir</p>
+  <h2 style="margin-top:20px">Angga & Vina</h2>
+</section>
+
+<!-- MUSIK -->
+<audio id="musik" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function bukaUndangan(){
+  document.getElementById('musik').play();
+  window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
+}
+
+// COUNTDOWN
+const target = new Date("Oct 17, 2026 08:00:00").getTime();
+setInterval(function(){
+  const now = new Date().getTime();
+  const jarak = target - now;
+  document.getElementById("hari").innerHTML = Math.floor(jarak / (1000 * 60 * 60 * 24));
+  document.getElementById("jam").innerHTML = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("menit").innerHTML = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+  document.getElementById("detik").innerHTML = Math.floor((jarak % (1000 * 60)) / 1000);
+}, 1000);
+</script>
+
 </body>
 </html>
